@@ -1,0 +1,32 @@
+.titreErreurs {
+    font: {
+        weight: bold;
+        size: 140px;
+    }
+    margin: 100px 0 0;
+}
+
+.descErreursType1 {
+    font: {
+        weight: bold;
+        size: 25px;
+    }
+    color: $color7;
+    margin: 30px 0 0;
+}
+
+.descErreursType2 {
+    font-size: 16px;
+}
+
+.linkErreurs {
+    display: inline-block;
+    color: $color6;
+    font-size: 20px;
+    margin: 30px 0 0;
+    text-decoration: none;
+    @include transition($transition: color .4s linear);
+    &:hover {
+        color: $color4;
+    }
+}

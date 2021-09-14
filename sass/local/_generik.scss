@@ -1,0 +1,63 @@
+@import 
+        'generik/_is',
+        'generik/_containers',
+        'generik/_col',
+        'generik/_form',
+        'generik/_titres';
+        
+.hrType1{
+    border-top : 2px solid $color6;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.listType1 {
+    padding: 0;
+    font-size: 15px;
+    list-style-position: inside;
+    &__li {
+        margin: 5px 0 0 10px;
+        &:first-child {
+            list-style: none;
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+}
+
+.noHesit {
+    font: {
+        size: 2.5rem;
+        weight: bold;
+    }
+    text-align: center;
+    margin: 30px 0 0;
+    color: $color6;
+}
+
+.comp {
+    @include container();
+    margin-top: 50px;
+
+    &__title {
+        font-size: 2rem;
+        color: $color6;
+        margin: 0 0 15px;
+    }
+
+    &__subtitle {
+        font-size: 1.8rem;
+        list-style: none;
+        text-decoration: underline;
+        margin: 0 0 15px;
+    }
+
+    &__list {
+        margin: 10px 0 0;
+
+        li {
+            margin-top: 5px;
+        }
+    }
+}

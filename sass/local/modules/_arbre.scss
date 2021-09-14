@@ -1,0 +1,51 @@
+.arbreType {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    &__name {
+        font: {
+            size: 18px;
+            weight: bold;
+        }
+    }
+    
+    &__niv1Name {
+        font-size: 16px;
+        cursor: pointer;
+        
+        &:after {
+            display: inline-block;
+            content: "\ea43";
+            font-family: "icomoon";
+            margin: 0 0 0 10px;
+        }
+        
+        &.open {
+            &:after {
+                @include prefix((transform: rotate(180deg)), webkit ms);
+            }
+        }
+    }
+    
+    &__niv2 {
+        list-style: none;
+        padding: 10px 0 5px 25px;
+        display: none;
+        
+        &__li{
+            margin: 5px 0 0;
+            &:first-child {
+                margin: 0;
+            }
+            
+            a {
+                color: $colorFontDef;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

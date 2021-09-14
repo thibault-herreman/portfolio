@@ -1,0 +1,214 @@
+//  -------------------------------------------------
+//  MENU
+//  -------------------------------------------------
+
+// @include container();
+// @function percent($a, $b: false);
+// @include prefix($declarations, $prefixes: (), $valuePrefix: false));
+// @include clearFix();
+// @include displayFlex($inline: false);
+// @include opacity($value);
+// @include boxShadow(
+    // $horizontal: 0,
+    // $vertical: 0,
+    // $blur: 2px,
+    // $spread: 0,
+    // $color: rgba(Black,.8),
+    // $inset: false
+// );
+// @include triangle (
+    // $borderColor: Black,
+    // $borderWidth: 10px 7px 0 7px,
+    // $directionTriangle: bottom,
+    // $position: false,
+    // $top: false,
+    // $right: false,
+    // $bottom: false,
+    // $left: false
+// );
+// @include transition($transition: all .5s ease);
+// @include verticalAlign(
+    // $inlineBlock: false,
+    // $position: relative,
+    // $top: 50%,
+    // $transform: -50%
+// );
+// @include gradient(
+    // $startColor: GhostWhite,
+    // $middleColor: Silver,
+    // $endColor: DarkGrey,
+    // $direction: vertical,
+    // $startAlpha: 1,
+    // $endAlpha: 1,
+    // $ie: true
+// );
+//---------------------------------------------------
+
+// centrer le contenu
+@mixin container() {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: #{$sizeSite}px;
+    display: flex;
+}
+
+// prefixs navigateurs
+@mixin prefix($map, $vendors: webkit khtml moz ms o) {
+    @each $prop, $value in $map {
+        @if $vendors {
+            @each $vendor in $vendors {
+                #{"-" + $vendor + "-" + $prop}: #{$value};
+            }
+        }
+        #{$prop}: #{$value};
+    }
+}
+
+// CLEARFIX
+@mixin clearFix() {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// DISPLAY FLEX
+@mixin displayFlex($inline: false) {
+    $inline: if($inline, inline-, '');
+    display: -webkit-#{$inline}box;
+    display: -moz-#{$inline}box;
+    display: -ms-#{$inline}flexbox;
+    display: -webkit-#{$inline}flex;
+    display: #{$inline}flex;
+}
+
+// OPACITE
+@mixin opacity($value) {
+    $IEValue: $value*100;
+    opacity: $value;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+    filter: alpha(opacity=$IEValue);
+}
+
+// BOXSHADOW
+@mixin boxShadow(
+    $horizontal: 0,
+    $vertical: 0,
+    $blur: 2px,
+    $spread: 0,
+    $color: rgba(Black, .8),
+    $inset: false
+) {
+    @if $inset {
+        -webkit-box-shadow: $horizontal $vertical $blur $spread $color inset;
+        box-shadow: $horizontal $vertical $blur $spread $color inset;
+    } @else {
+        -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+        box-shadow: $horizontal $vertical $blur $spread $color;
+    }
+}
+
+// TRIANGLE => defaut (14 x 10px + pointe vers le bas)
+// Generateur de triangle css : http://apps.eky.hk/css-triangle-generator/
+@mixin triangle (
+    $borderColor: Black,
+    $borderWidth: 10px 7px 0 7px,
+    $directionTriangle: bottom,
+    $position: false,
+    $top: false,
+    $right: false,
+    $bottom: false,
+    $left: false
+) {
+    width: 0;
+    height: 0;
+    display: block;
+    border: {
+        width: $borderWidth;
+        style: solid;
+    }
+    // Orientation
+    @if $directionTriangle == bottom {
+        border-color: $borderColor transparent transparent transparent;
+    } @else if $directionTriangle == top {
+        border-color: transparent transparent $borderColor transparent;
+    } @else if $directionTriangle == left {
+        border-color: transparent $borderColor transparent transparent;
+    } @else if $directionTriangle == right {
+        border-color: transparent transparent transparent $borderColor;
+    } @else {
+        border-color: $borderColor transparent transparent transparent;
+    }
+    // Position
+    @if $position { position: $position; }
+    @if $top { top: $top; }
+    @if $right { right: $right; }
+    @if $bottom { bottom: $bottom; }
+    @if $left { left: $left; }
+}
+
+// TRANSITION
+@mixin transition($transition: all .5s ease) {
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+// CENTRAGE VERTICAL
+@mixin verticalAlign(
+    $inlineBlock: false,
+    $position: relative,
+    $top: 50%,
+    $transform: -50%
+) {
+    @if $inlineBlock { display: $inlineBlock; }
+    position: $position;
+    top: $top;
+    @include prefix((transform: translateY($transform)), webkit ms);
+}
+
+// GRADIENT
+@mixin gradient(
+    $startColor: GhostWhite,
+    $middleColor: Silver,
+    $endColor: DarkGrey,
+    $direction: vertical,
+    $startAlpha: 1,
+    $endAlpha: 1,
+    $ie: true,
+    $startColorIE: ie-hex-str(rgba($startColor,$startAlpha)),
+    $endColorIE: ie-hex-str(rgba($endColor,$endAlpha))
+) {
+    background-color: $middleColor;
+    @if $direction == vertical {
+        background: -moz-linear-gradient(top, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%, rgba($startColor,$startAlpha)),color-stop(100%, rgba($endColor,$endAlpha)));
+        background: -webkit-linear-gradient(top, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -o-linear-gradient(top, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: linear-gradient(to bottom, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        @if $ie {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColorIE}', endColorstr='#{$endColorIE}', GradientType=0);
+        }
+    } @else if $direction == horizontal {
+        background: -moz-linear-gradient(left, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -webkit-gradient(linear,left top,right top,color-stop(0%, rgba($startColor,$startAlpha)),color-stop(100%, rgba($endColor,$endAlpha)));
+        background: -webkit-linear-gradient(left, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -o-linear-gradient(left, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: linear-gradient(to right, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        @if $ie {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColorIE}', endColorstr='#{$endColorIE}', GradientType=1);
+        }
+    } @else if $direction == radial {
+        background: -moz-radial-gradient(center, ellipse cover,  rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba($startColor,$startAlpha)), color-stop(100%,rgba($endColor,$endAlpha)));
+        background: -webkit-radial-gradient(center, ellipse cover, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: -o-radial-gradient(center, ellipse cover, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+        background: radial-gradient(ellipse at center, rgba($startColor,$startAlpha) 0%, rgba($endColor,$endAlpha) 100%);
+    }
+}

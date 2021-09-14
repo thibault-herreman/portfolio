@@ -1,0 +1,38 @@
+.colGauche {
+    
+}
+
+.colGaucheCalc {
+    float: left;
+    width: calc(100% - 320px);
+    @media only screen and (max-width: $breakPointMobile) {
+        float: none;
+        width: auto;
+    }
+}
+
+.colDroite {
+    
+}
+
+.colDroiteCalc {
+    width: 300px;
+    float: left;
+    margin-left: 20px;
+    @media only screen and (max-width: $breakPointMobile) {
+        float: none;
+        width: auto;
+        margin: 15px 0 0;
+    }
+}
+
+.coldFixeClass {
+    position: fixed;
+    top: 110px;
+    width: 300px;
+    background-color: White;
+    @media only screen and (max-width: $breakPointMobile) {
+        position: inherit;
+        width: auto;
+    }
+}

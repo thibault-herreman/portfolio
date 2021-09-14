@@ -1,0 +1,79 @@
+.listReferences {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &__block {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        // width: percent(395);
+        // margin: 30px percent(10) 0 percent(10);
+        @media only screen and (max-width: $screenMd) {
+            // width: percent(598);
+        }
+        @media only screen and (max-width: $screenSm) {
+            width: auto;
+            max-width: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        &:hover {
+            .listReferences {
+                &__overlay {
+                    opacity: 0.7;
+                }
+                &__desc {
+                    top: 30px;
+                    opacity: 1;
+                }
+                &__a {
+                    bottom: 30px;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        @include transition($transition: opacity .5s linear);
+        
+    }
+    &__desc {
+        position: absolute;
+        left: 20px;
+        top: -40px;
+        color: White;
+        opacity: 0;
+        margin: 0;
+        font: {
+            size: 16px;
+            weight: bold;
+        }
+        @include transition($transition: all .5s ease-in-out);
+    }
+    &__a {
+        text-decoration: none;
+        position: absolute;
+        left: 20px;
+        bottom: -40px;
+        opacity: 0;
+        @include transition($transition: all .5s ease-in-out);
+        padding: 10px;
+        border: 1px solid White;
+        border-radius: 15px;
+        background-color: $color6;
+        color: White;
+        &:hover {
+            background-color: White;
+            color: $color6;
+            border: 1px solid $color6;
+        }
+    }
+}

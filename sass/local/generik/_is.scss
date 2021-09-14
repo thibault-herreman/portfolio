@@ -1,0 +1,153 @@
+// marges par défaut
+.is-{
+    &marginNone {
+        margin: 0;
+    }
+    
+    &marginT0 {
+        margin-top: 0;
+    }
+    
+     &marginB0 {
+        margin-bottom: 0;
+    }
+    
+    &marginT5 {
+        margin-top: 5px;
+    }
+
+    &marginT10 {
+        margin-top: 10px;
+    }
+    
+    &marginT15 {
+        margin-top: 15px;
+    }
+
+    &marginT20 {
+        margin-top: 20px;
+    }
+
+    &marginT30 {
+        margin-top: 30px;
+    }
+    
+    &marginT50 {
+        margin-top: 50px;
+    }
+    
+    &marginB15 {
+        margin-bottom: 15px;
+    }
+    
+    &marginB30 {
+        margin-bottom: 30px;
+    }
+    
+    &marginL20 {
+        margin-left: 20px;
+    }
+    
+    &marginR20 {
+        margin-right: 20px;
+    }
+    
+    &floatLeft {
+        float: left;
+    }
+
+    &clearBoth {
+        clear: both;
+    }
+    
+    &inlineBlock {
+        display: inline-block;
+    }
+    
+    &bold {
+        font-weight: bold;
+    }
+    
+    &center {
+        text-align: center;
+    }
+    
+    &font16{
+        font-size: 1.6rem;
+    }
+    
+    &font18{
+        font-size: 18px;
+    }
+    
+    &font25{
+        font-size: 25px;
+    }
+
+    &vAlignMiddle {
+        vertical-align: middle;
+    }
+    
+    &lineBreak {
+        display: block;
+    }
+    
+    // Specificités
+    &noMobile {
+        @media #{$isMobile} {
+            display: none;
+        }
+    }
+
+    &mobile {
+        display: none;
+        @media #{$isMobile} {
+            display: block;
+        }
+    }
+
+    &no1024 {
+        @media #{$is1024} {
+            display: none;
+        }
+    }
+
+    &1024 {
+        display: none;
+        @media #{$is1024} {
+            display: block;
+        }
+    }
+
+    &hiddenLg {
+        @media only screen and (min-width: $screenLg) {
+            display: none;
+        }
+    }
+
+    &hiddenMd {
+        @media only screen and (min-width: $screenMd) and (max-width: $screenLg - 1) {
+            display: none;
+        }
+    }
+
+    &hiddenSm {
+        @media only screen and (min-width: $screenSm) and (max-width: $screenMd - 1) {
+            display: none;
+        }
+    }
+
+    &hiddenXs {
+        @media only screen and (max-width: $screenSm - 1) {
+            display: none;
+        }
+    }
+
+    &flexEnd {
+        align-items: flex-end;
+    }
+
+    &justifyContentSB {
+        justify-content: space-between;
+    }
+}

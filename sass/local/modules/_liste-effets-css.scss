@@ -1,0 +1,193 @@
+.listeEffetsCss {
+    list-style: none;
+    padding: 0;
+    @include displayFlex;
+    @include prefix((flex-wrap: wrap));
+    li {
+        margin-right: 15px;
+    }
+}
+
+.effet {
+    display: inline-block;
+    text-decoration: none;
+    color: Black;
+    height: 40px;
+    text-align: center;
+    // pour l'effet on donne le temps de la transition dans les attributs du bloc et on définit la tranformation dans le hover
+    @include transition($transition: transform .5s linear);
+    vertical-align: middle;
+    
+    &__txt {
+        vertical-align: middle;
+    }
+    
+    &__sousMenu {
+        padding: 10px;
+        background-color: White;
+        border: 1px solid $color1;
+        position: absolute;
+        top: 40px;
+        margin-left: -90px;
+        width: 180px;
+        left: 50%;
+        z-index: 3;
+        display: none;
+        text-align: left;
+        line-height: normal;
+        overflow-wrap: break-word;
+        @include prefix((box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.18)));
+        &__titre {
+            font: {
+                weight: bold;
+                size: 16px;
+            }
+        }
+        &__lien {
+            color: $color6;
+            text-decoration: none;
+            display: inline-block;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        &:before {
+            content: "";
+            margin-left: -10px;
+            z-index: 2;
+            @include triangle (
+                $borderColor: White,
+                $borderWidth: 0 10px 10px 10px,
+                $directionTriangle: top,
+                $position: absolute,
+                $top: -10px,
+                $left: 50%
+            );
+        }
+        &:after {
+            content: "";
+            margin-left: -12px;
+            @include triangle (
+                $borderColor: $color1,
+                $borderWidth: 0 12px 12px 12px,
+                $directionTriangle: top,
+                $position: absolute,
+                $top: -12px,
+                $left: 50%
+            );
+        }
+    }
+    
+    [class^="icon-"] {
+        // Pour centrer l'icon en hauteur
+        position: relative;
+        top: 50%;
+        display: inline-block;
+        @include prefix((transform: translateY(-50%)), webkit ms);
+    }
+    
+    &--type1 {
+        font-size: 20px;
+        border-radius: 100%;
+        width: 40px;
+    }
+    
+    &--border {
+        width: 40px;
+        border: 3px solid Black;
+    }
+    
+    &--type2 {
+        font-size: 20px;
+    }
+    
+    &--type3 {
+        line-height: 40px;
+        position: relative;
+        &:hover {
+            .effet__sousMenu {
+                display: block;
+            }
+        }
+    }
+}
+
+.effetCt {
+    margin: 0;
+    &:hover {
+        .effet--type1 {
+            @include prefix((transform: rotate(360deg)));
+        }
+        .effet--type2 {
+            @include prefix((transform: scale(2)));
+        }
+    }
+}
+
+a.effetCt {
+    .effet__txt {
+        position: relative;
+        padding: 0 0 3px;
+        &:after {
+            content: "";
+            display: inline-block;
+            border-bottom: 1px solid White;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            @include transition($transition: width .5s linear);
+        }
+    }
+    &:hover {
+        .effet__txt {
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.effetType2 {
+    margin: 20px 0 0;
+    width: 300px;
+    position: relative;
+    font-size: 0;
+    &__txt {
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        padding: 0 10px;
+        width: 100%;
+        z-index: 2;
+        @include prefix((transform: translateY(-50%)));
+        color: White;
+        font: {
+            weight: bold;
+            size: 18px;
+        }
+        text-shadow: 0 1px 15px rgba(0, 0, 0, 0.8);
+        text-align: center;
+    }
+    &:hover {
+        &:before {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        background-color: rgba($color6, 0.4);
+        @include prefix((transition: all 0.5s ease));
+    }
+}

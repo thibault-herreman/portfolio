@@ -1,0 +1,217 @@
+.header {
+    padding: 15px 0 0;
+    @include gradient(
+        $startColor: White,
+        $endColor: $color5
+    );
+    @include prefix((box-shadow: 0 3px 5px 0 rgba(0,0,0,0.3)));
+    top: -100px;
+    
+    &.headerSticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        @include prefix((transition: top 0.5s ease));
+    }
+        
+    &__pres {
+        display: inline-block;
+        width: 49%;
+        @media only screen and (max-width: $breakPointTabletPortrait) {
+            display: block;
+            width: auto;
+            text-align: left;
+            height: 75px;
+            position: relative;
+            padding-right: 50px;
+        }
+    }
+        
+    &__nav {
+        @media only screen and (max-width: $breakPointTabletPortrait) {
+            display: none;
+            position: absolute;
+            z-index: 2;
+            top: 90px;
+            left: 0;
+            width: 100%;
+            background-color: $colorFontDef;
+        }
+    }
+    
+    &__name {
+        display: block;
+        font: {
+            weight: normal;
+            size: 3rem;
+        }
+        @media only screen and (max-width: $screenXs) {
+            font-size: 2.5rem;
+        }
+    }
+    
+    &__fonction {
+        display: block;
+        font: {
+            weight: normal;
+            size: 2rem;
+        }
+        margin: 7px 0 15px;
+        @media only screen and (max-width: $screenXs) {
+            font-size: 1.5rem;
+        }
+    }
+    
+
+    &__menuIcon {
+        display: none;
+        position: absolute;
+        top: 8px;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background-color: $colorFontDef;
+        padding: 10px;
+        @media only screen and (max-width: $breakPointTabletPortrait) {
+            display: block;
+        }
+        @media only screen and (max-width: $screenXs) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    &__menuIconCt {
+        position: relative;
+    }
+    
+    &__barMenu {
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        display: block;
+        background-color: White;
+        @include prefix((transition: .35s ease-in-out));
+        &:nth-child(1) {
+            top: 0;
+        }
+        &:nth-child(2) {
+            top: 12px;
+        }
+        &:nth-child(3) {
+            top: 25px;
+        }
+        @media only screen and (max-width: $screenXs) {
+            &:nth-child(1) {
+                top: -1px;
+            }
+            &:nth-child(2) {
+                top: 9px;
+            }
+            &:nth-child(3) {
+                top: 19px;
+            }
+        }
+        
+        .header__menuIcon--open &{
+            &:nth-child(1) {
+                @include prefix((transform: rotate(135deg)));
+                top: 12px;
+            }
+            &:nth-child(2) {
+                left: -60px;
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                @include prefix((transform: rotate(-135deg)));
+                top: 12px;
+            }
+            @media only screen and (max-width: $screenXs) {
+                &:nth-child(1), &:nth-child(3) {
+                    top: 9px;
+                }
+            }
+        }
+    }
+    
+    &__navContents {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 1.6rem;
+        
+        li {
+            display: inline-block;
+            margin: 0 0 0 3rem;
+            @media only screen and (max-width: $breakPointTabletPortrait) {
+                display: block;
+                margin: 0;
+                &:first-child {
+                    .header__ong {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    &__ong {
+
+        &.active {
+            a {
+                color: $color4;
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+
+        a {
+            color: $colorFontDef;
+            text-decoration: none;
+            padding-bottom: 10px;
+            position: relative;
+            display: block;
+            @media only screen and (max-width: $breakPointTabletPortrait) {
+                padding: 15px 20px;
+                border-top: 1px solid White;
+                color: White;
+                @include transition($transition: color .25s linear);
+                .icon-home3 {
+                    &:before {
+                        content: "Accueil";
+                        font-family: $fontSite;
+                    }
+                }
+            }
+            @media only screen and (min-width: #{$breakPointTabletPortrait + 1}) {
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    border-bottom: 2px solid $colorFontDef;
+                    display: inline-block;
+                    content: "";
+                    width: 0;
+                    @include transition($transition: width .3s linear);
+                }
+                &:hover {
+                    color: $color4;
+                    &:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: $breakPointTabletPortrait) {
+    .header__ong a{
+        &:hover {
+            color: $color6;
+        }
+    }
+}

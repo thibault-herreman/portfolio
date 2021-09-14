@@ -1,0 +1,17 @@
+.titreType1 {
+    font-size: 30px;
+    @media only screen and (max-width: $breakPointMobile) {
+        font-size: 25px;
+    }
+}
+
+.titreType2 {
+    font: {
+        size: 22px;
+        weight: bold;
+    }
+    color: $color6;
+    @media only screen and (max-width: $breakPointMobile) {
+        font-size: 20px;
+    }
+}

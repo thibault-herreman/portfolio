@@ -1,0 +1,31 @@
+//  variables du site
+
+// conteneurs
+$sizeSite: 1256;
+
+// Break Point
+$breakPointTabletPortrait: 800px !default;
+$breakPointMobile: 740px !default;
+
+// Grid
+$screenXs: 480px !default;
+$screenSm: 768px !default;
+$screenMd: 992px !default;
+$screenLg: 1200px !default;
+
+// Media queries
+$isMobile: 'only screen and (max-device-width: #{$breakPointMobile}), (max-width: #{$breakPointMobile})';
+$is1024: 'only screen and (max-width: 1024px)';
+
+// font
+$fontSite: Arial, Helvetica, sans-serif;
+
+// couleurs
+$colorFontDef: #4d4d4d; // gris +++
+$color1: #ccc; // gris -
+$color2: #fefefe; // blanc cassé
+$color3: #79bc64; // vert
+$color4: #007bb6; // bleu linkedin
+$color5: #dbdbdb; // gris --
+$color6: #eb6d19; // orange
+$color7: #cb6388; // rouge

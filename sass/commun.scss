@@ -1,0 +1,28 @@
+// imports
+@import 
+        'lib/_variables',
+        'lib/_mixin',
+        'lib/_normalize',
+        'lib/_font',
+        
+        'local/_modules',
+        'local/_generik';
+
+*, *:before, *:after {
+    @include prefix((box-sizing: border-box));
+}
+        
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $color2;
+    color: $colorFontDef;
+    font: {
+        size: 1.4rem;
+        family: $fontSite;
+    }
+}
