@@ -1,8 +1,6 @@
 @import 
         'generik/_is',
         'generik/_containers',
-        'generik/_col',
-        'generik/_form',
         'generik/_titres';
         
 .hrType1{
@@ -37,13 +35,10 @@
 }
 
 .comp {
-    @include container();
-    margin-top: 50px;
-
     &__title {
         font-size: 2rem;
         color: $color6;
-        margin: 0 0 15px;
+        margin: 50px 0 15px;
     }
 
     &__subtitle {

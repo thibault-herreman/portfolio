@@ -10,7 +10,7 @@ export default function Header(props) {
     return (
         <header className="header">
 
-            <div className="container is-flexEnd is-justifyContentSB">
+            <div className="header__ct">
 
                 <div itemScope itemType="http://schema.org/LocalBusiness">
 

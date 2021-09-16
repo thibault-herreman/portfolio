@@ -1,33 +1,29 @@
 .listReferences {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0;
+
+    &__ct {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 50vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+
     &__block {
-        display: inline-block;
-        vertical-align: top;
         position: relative;
-        // width: percent(395);
-        // margin: 30px percent(10) 0 percent(10);
-        @media only screen and (max-width: $screenMd) {
-            // width: percent(598);
-        }
-        @media only screen and (max-width: $screenSm) {
-            width: auto;
-            max-width: 400px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        margin: 20px 0 0;
+
         &:hover {
             .listReferences {
                 &__overlay {
                     opacity: 0.7;
                 }
-                &__desc {
-                    top: 30px;
-                    opacity: 1;
-                }
-                &__a {
+                &__voir {
                     bottom: 30px;
                     opacity: 1;
                 }
@@ -47,29 +43,35 @@
     }
     &__desc {
         position: absolute;
-        left: 20px;
-        top: -40px;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%);
         color: White;
-        opacity: 0;
+        background-color: $color6;
+        opacity: 0.8;
+        padding: 10px;
         margin: 0;
+        width: 80%;
+        text-align: center;
         font: {
             size: 16px;
             weight: bold;
         }
         @include transition($transition: all .5s ease-in-out);
     }
-    &__a {
+    &__voir {
         text-decoration: none;
         position: absolute;
-        left: 20px;
         bottom: -40px;
+        left: 50%;
+        transform: translate(-50%);
         opacity: 0;
         @include transition($transition: all .5s ease-in-out);
         padding: 10px;
-        border: 1px solid White;
+        border: 1px solid $color6;
         border-radius: 15px;
-        background-color: $color6;
-        color: White;
+        background-color: white;
+        color: $color6;
         &:hover {
             background-color: White;
             color: $color6;

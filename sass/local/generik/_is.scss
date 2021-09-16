@@ -1,4 +1,4 @@
-// marges par défaut
+// class génériques
 .is-{
     &marginNone {
         margin: 0;
@@ -52,18 +52,6 @@
         margin-right: 20px;
     }
     
-    &floatLeft {
-        float: left;
-    }
-
-    &clearBoth {
-        clear: both;
-    }
-    
-    &inlineBlock {
-        display: inline-block;
-    }
-    
     &bold {
         font-weight: bold;
     }
@@ -77,11 +65,11 @@
     }
     
     &font18{
-        font-size: 18px;
+        font-size: 1.8rem;
     }
     
     &font25{
-        font-size: 25px;
+        font-size: 2.5rem;
     }
 
     &vAlignMiddle {
@@ -90,6 +78,18 @@
     
     &lineBreak {
         display: block;
+    }
+
+    &flex {
+        display: flex;
+    }
+
+    &flexEnd {
+        align-items: flex-end;
+    }
+
+    &justifyContentSB {
+        justify-content: space-between;
     }
     
     // Specificités
@@ -143,11 +143,4 @@
         }
     }
 
-    &flexEnd {
-        align-items: flex-end;
-    }
-
-    &justifyContentSB {
-        justify-content: space-between;
-    }
 }
