@@ -12,20 +12,17 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        @media only screen and (max-width: $sizeSite * 1px) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media only screen and (max-width: $breakPointTabletPortrait) {
+            display: block;
+        }
     }
     
-    &.headerSticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 3;
-        width: 100%;
-        @include prefix((transition: top 0.5s ease));
-    }
-        
     &__pres {
-        display: inline-block;
-        width: 49%;
         @media only screen and (max-width: $breakPointTabletPortrait) {
             display: block;
             width: auto;
@@ -38,14 +35,18 @@
         
     &__nav {
         @media only screen and (max-width: $breakPointTabletPortrait) {
-            display: none;
             position: absolute;
             z-index: 2;
             top: 90px;
-            left: 0;
+            left: -100vw;
             width: 100%;
             background-color: $colorFontDef;
+            @include transition($transition: left .3s linear);
         }
+    }
+
+    &__menuOpen {
+        left: 0;
     }
     
     &__name {
@@ -123,7 +124,7 @@
             }
         }
         
-        .header__menuIcon--open &{
+        .toMenuOpen &{
             &:nth-child(1) {
                 @include prefix((transform: rotate(135deg)));
                 top: 12px;
@@ -149,6 +150,10 @@
         padding: 0;
         list-style: none;
         font-size: 1.6rem;
+
+        @media only screen and (max-width: $breakPointTabletPortrait) {
+            text-align: center;
+        }
         
         li {
             display: inline-block;
@@ -167,16 +172,18 @@
     
     &__ong {
 
-        &.active {
-            a {
-                color: $color4;
-                &:after {
-                    width: 100%;
+        @media only screen and (min-width: #{$breakPointTabletPortrait + 1}) {
+            &.active {
+                a, .noLink {
+                    color: $color4;
+                    &:after {
+                        width: 100%;
+                    }
                 }
             }
         }
 
-        a {
+        a, .noLink {
             color: $colorFontDef;
             text-decoration: none;
             padding-bottom: 10px;
@@ -186,13 +193,6 @@
                 padding: 15px 20px;
                 border-top: 1px solid White;
                 color: White;
-                @include transition($transition: color .25s linear);
-                .icon-home3 {
-                    &:before {
-                        content: "Accueil";
-                        font-family: $fontSite;
-                    }
-                }
             }
             @media only screen and (min-width: #{$breakPointTabletPortrait + 1}) {
                 &:after {

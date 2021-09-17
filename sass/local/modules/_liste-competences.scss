@@ -1,0 +1,39 @@
+.comp {
+    &__title {
+        font-size: 2rem;
+        color: $color6;
+        margin: 50px 0 15px;
+    }
+
+    &__ct {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &__subtitle {
+        font-size: 1.8rem;
+        list-style: none;
+        text-decoration: underline;
+        margin: 0 0 15px;
+    }
+
+    &__list {
+        margin: 10px 0 0;
+        list-style-position: inside;
+        padding: 0;
+
+        @media only screen and (max-width: #{$breakPointTabletPortrait + 1}) {
+            width: 50%;
+            margin: 20px 0 0;
+        }
+
+        @media only screen and (max-width: #{$screenXs}) {
+            width: 100%;
+        }
+
+        li {
+            margin-top: 5px;
+        }
+    }
+}

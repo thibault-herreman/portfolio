@@ -1,18 +1,30 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import { Link as Linkto, animateScroll as scroll } from "react-scroll";
+import { useState } from 'react';
 
 export default function Header(props) {
 
     let activeHp;
-    props.hp ? activeHp = 'header__ong active' : activeHp = 'header__ong';
+    props.hp ? 
+        activeHp = <li className='header__ong active'><span className="noLink">Accueil</span></li> : 
+        activeHp = <li className='header__ong'><Link href="/">Accueil</Link></li>;
     let activeProjets;
-    props.projets ? activeProjets = 'header__ong active' : activeProjets = 'header__ong';
+    props.projets ? 
+        activeProjets = <li className='header__ong active'><span className="noLink">Projets</span></li> : 
+        activeProjets = <li className='header__ong'><Link href="/projets">Projets</Link></li>;
+        
+    const [isMenuMobile, setIsMenuMobile] = useState(false);
+
+    const handleClickMenu = () => {
+        setIsMenuMobile(!isMenuMobile);
+    }
 
     return (
         <header className="header">
 
             <div className="header__ct">
 
-                <div itemScope itemType="http://schema.org/LocalBusiness">
+                <div className="header__pres" itemScope itemType="http://schema.org/LocalBusiness">
 
                     <h1 className="is-marginNone">
 
@@ -36,7 +48,7 @@ export default function Header(props) {
 
                     <meta itemProp="sameAs" content="https://www.linkedin.com/in/thibault-herreman/" />
 
-                    <a href="#" className="header__menuIcon jqOpenNav">
+                    <div className={`header__menuIcon ${isMenuMobile ? 'toMenuOpen' : ''}`} onClick={handleClickMenu}>
 
                         <div className="header__menuIconCt">
 
@@ -48,20 +60,24 @@ export default function Header(props) {
 
                         </div>
 
-                    </a>
+                    </div>
 
                 </div>
 
-                <nav className="header__nav">
+                <nav className={`header__nav ${isMenuMobile ? 'header__menuOpen' : ''}`}>
 
                     <ul className="header__navContents">
-
-                        <li className={activeHp}><Link href="/"><i className="icon-home3"></i></Link></li>
-
-                        <li className={activeProjets}><Link href="/projets">Projets</Link></li>
-
-                        <li className="header__ong"><Link href="#" data-ancre="footer">Contact</Link></li>
-
+                        {activeHp}
+                        {activeProjets}
+                        <li className="header__ong">
+                            <Linkto 
+                                to="footer"
+                                smooth={true}
+                                duration={1000}
+                            >
+                                Contact
+                            </Linkto>
+                        </li>
                     </ul>
 
                 </nav>

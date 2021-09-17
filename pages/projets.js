@@ -1,10 +1,16 @@
-import Header from './component/Header'
+import HeadComponent from './component/HeadComponent'
 import Image from 'next/image'
+import Header from './component/Header'
 import Footer from './component/Footer'
 
 export default function Projets() {
     return (
         <>
+            <HeadComponent 
+                title="Projets de Thibault Herreman - Développeur Full Stack React / Node.js"
+                description="Page qui présente les projets de Thibault Herreman"
+            />
+        
             <Header projets={true} />
 
             <div className="container">

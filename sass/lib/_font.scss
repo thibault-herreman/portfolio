@@ -1,5 +1,5 @@
 @font-face {
-    $cache: 7sdjga;
+    $cache: 5bk3vi;
 
     font-family: 'icomoon';
     src:  url('../../fonts/icomoon.eot?#{$cache}');
@@ -26,35 +26,17 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-amortisseurs:before {
-  content: "\e904";
-}
-.icon-freins:before {
-  content: "\e905";
-}
-.icon-pneus:before {
-  content: "\e906";
-}
-.icon-batterie:before {
-  content: "\e907";
-}
-.icon-clim:before {
-  content: "\e908";
-}
-.icon-revision:before {
-  content: "\e909";
-}
-.icon-vidange:before {
-  content: "\e903";
-}
-.icon-mail1:before {
-  content: "\e901";
-}
-.icon-linkedin1:before {
+.icon-github:before {
   content: "\e900";
 }
-.icon-home3:before {
+.icon-linkedin1:before {
+  content: "\e901";
+}
+.icon-mail1:before {
   content: "\e902";
+}
+.icon-home3:before {
+  content: "\e903";
 }
 .icon-phone:before {
   content: "\e942";
