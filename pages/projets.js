@@ -42,18 +42,18 @@ export default function Projets() {
 
                         <li className="listReferences__block">
 
-                            <a href="https://www.magasin-lsa.fr/" rel="noreferrer" target="_blank">
+                            <a href="https://mymoviz-thibault-herreman.herokuapp.com/" rel="noreferrer" target="_blank">
 
                                 <Image 
-                                    alt="Bikeshop"
-                                    src="/images/bikeshop.png"
+                                    alt="MyMoviz"
+                                    src="/images/mymoviz.png"
                                     width={400}
                                     height={195}
                                 />
 
                                 <div className="listReferences__overlay"></div>
 
-                                <p className="listReferences__desc">Bikeshop : Express, Stripe, Bootstrap</p>
+                                <p className="listReferences__desc">MyMoviz : React, Express, api TMDB</p>
 
                                 <p className="listReferences__voir">Voir le projet sur Heroku</p>
 
