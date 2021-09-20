@@ -63,18 +63,18 @@ export default function Projets() {
 
                         <li className="listReferences__block">
 
-                            <a href="https://mymoviz-thibault-herreman.herokuapp.com/" rel="noreferrer" target="_blank">
+                            <a href="https://weatherapp-thibault-herreman.herokuapp.com/" rel="noreferrer" target="_blank">
 
                                 <Image 
-                                    alt="Bikeshop"
-                                    src="/images/bikeshop.png"
+                                    alt="WeatherApp"
+                                    src="/images/weatherapp.png"
                                     width={400}
                                     height={195}
                                 />
 
                                 <div className="listReferences__overlay"></div>
 
-                                <p className="listReferences__desc">Bikeshop : Express, Stripe, Bootstrap</p>
+                                <p className="listReferences__desc">WeatherApp : Express, OpenWeatherMap</p>
 
                                 <p className="listReferences__voir">Voir le projet sur Heroku</p>
                                 
