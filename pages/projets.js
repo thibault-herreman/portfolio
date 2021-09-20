@@ -63,7 +63,7 @@ export default function Projets() {
 
                         <li className="listReferences__block">
 
-                            <a href="https://www.magasin-lsa.fr/" rel="noreferrer" target="_blank">
+                            <a href="https://mymoviz-thibault-herreman.herokuapp.com/" rel="noreferrer" target="_blank">
 
                                 <Image 
                                     alt="Bikeshop"
