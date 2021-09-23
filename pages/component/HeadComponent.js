@@ -7,6 +7,8 @@ export default function HeadComponent(props) {
             <title>{props.title}</title>
             <meta name="description" content={props.description} />
 
+            <meta name="robots" content="index, follow" />
+
             <meta property="og:title" content="Thibault Herreman - Développeur Full Stack React / Node.js" />
 
             <meta property="og:type" content="website" />
