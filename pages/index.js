@@ -9,6 +9,7 @@ export default function Home() {
       <HeadComponent 
           title="Thibault Herreman - Développeur Full Stack React / Node.js"
           description="Page d'accueil du portfolio de Thibault Herreman - Développeur Full Stack React / Node.js"
+          googleSiteVerif={true}
       />
 
       <Header hp={true} />

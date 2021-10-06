@@ -7,7 +7,10 @@ export default function HeadComponent(props) {
             <title>{props.title}</title>
             <meta name="description" content={props.description} />
 
-            <meta name="google-site-verification" content="LQVkUSDxiTR0xvt2s-1T0msCLF59x9LT3BQHNl_P5J8" />
+            {props.googleSiteVerif ? 
+                <meta name="google-site-verification" content="LQVkUSDxiTR0xvt2s-1T0msCLF59x9LT3BQHNl_P5J8" />
+                : null
+            }
 
             <meta name="robots" content="index, follow" />
 
