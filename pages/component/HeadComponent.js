@@ -22,11 +22,11 @@ export default function HeadComponent(props) {
 
             <meta property="og:description" content="Développeur Full Stack React / Node.js Web et Mobile" />
 
-            <meta property="og:url" content="https://portfolio-thibault-herreman.vercel.app/" />
+            <meta property="og:url" content="https://thibault-herreman.com/" />
 
             <meta property="og:site_name" content="Portfolio de Thibault Herreman" />
 
-            <meta property="og:image" content="https://portfolio-thibault-herreman.vercel.app/images/thibault-herreman.png" />
+            <meta property="og:image" content="https://thibault-herreman.com/images/thibault-herreman.png" />
 
             <meta property="og:image:type" content="image/jpeg" />
 
@@ -38,13 +38,13 @@ export default function HeadComponent(props) {
 
             <meta name="twitter:card" content="summary" />
 
-            <meta name="twitter:site" content="https://portfolio-thibault-herreman.vercel.app/" />
+            <meta name="twitter:site" content="https://thibault-herreman.com/" />
 
             <meta name="twitter:title" content="Thibault Herreman - Développeur Full Stack React / Node.js" />
 
             <meta name="twitter:description" content="Portfolio de Thibault Herreman, Développeur Full Stack React / Node.js Web et Mobile" />
 
-            <meta name="twitter:image" content="https://portfolio-thibault-herreman.vercel.app/images/thibault-herreman.png" />
+            <meta name="twitter:image" content="https://thibault-herreman.com/images/thibault-herreman.png" />
 
         </Head>
     )

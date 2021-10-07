@@ -38,7 +38,7 @@ export default function Header(props) {
 
                     <meta itemProp="areaServed" content="Ile de France" />
 
-                    <meta itemProp="image" content="/images/thibault-herreman.png" />
+                    <meta itemProp="image" content="https://thibault-herreman.com/images/thibault-herreman.png" />
 
                     <meta itemProp="email" content="thibault.herreman@gmail.com" />
 
